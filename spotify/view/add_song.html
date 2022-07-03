@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./js/add_song.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body onload="callApi()">
+    <form action="/app/index" enctype="multipart/form-data" method="post" id="add_song">
+        <label for="name">Enter Song name: </label>
+        <input type="text" name="name" id="name">
+        <br>
+
+        <label for="rls_date">Enter release date: </label>
+        <input type="date" name="rls_date" id="rls_date">
+        <br>
+
+        <label for="cover_img">Select cover image</label>
+        <input type="file" name="cover_img" id="cover_img" accept='image/*' on>
+        <br>
+
+        <select name="artists_list" multiple id="artists_list">
+            <option value="">Select Artist</option>
+        </select>
+        
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" onclick="location.href = 'http://localhost:8080/app/add_artist';">
+            + Add Artist
+        </button>
+        <br>
+
+        <button onclick="addsong()">Submit</button>
+    </form>
+</body>
+</html>
